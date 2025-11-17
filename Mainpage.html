@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Handwerks-Schild | Ihr Notfall-Handwerker-Dienst in Deutschland</title>
+    <style>
+        /* Allgemeine Styles und Schriftarten */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        /* Hauptfarbe des Unternehmens */
+        :root {
+            --primary-color: #1f4764; /* Dunkelblau */
+            --secondary-color: #ffd700; /* Akzentfarbe: Gold/Gelb */
+        }
+
+        /* Header und Navigation */
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 15px 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .container {
+            width: 85%;
+            margin: 0 auto;
+            max-width: 1200px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-placeholder {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+        }
+
+        .logo-placeholder span {
+            color: var(--secondary-color);
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 25px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: var(--secondary-color);
+        }
+
+        /* Hero Section (Startseite) */
+        .hero {
+            background: linear-gradient(rgba(31, 71, 100, 0.85), rgba(31, 71, 100, 0.85)), url('handwerker_notfall_bild.jpg') center/cover no-repeat;
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.8em;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 1.3em;
+            margin-bottom: 30px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+            padding: 12px 30px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .cta-button:hover {
+            background-color: #e0b700; /* Dunkleres Gelb */
+        }
+
+        /* Sektionen */
+        section {
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 2em;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background-color: var(--secondary-color);
+            margin: 10px auto 30px;
+        }
+
+        /* Dienstleistungen */
+        .services-grid {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .service-item {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            width: 30%;
+            margin-bottom: 20px;
+            min-width: 250px;
+            transition: transform 0.3s;
+        }
+
+        .service-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-item h3 {
+            color: var(--primary-color);
+            font-size: 1.5em;
+            margin-top: 0;
+        }
+
+        /* Mitgliedschafts-Modelle */
+        #mitgliedschaft {
+            background-color: white;
+        }
+
+        .membership-grid {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+
+        .membership-card {
+            background-color: #ffffff;
+            border: 2px solid var(--primary-color);
+            border-radius: 10px;
+            padding: 30px;
+            width: 300px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+            text-align: left;
+            transition: all 0.3s;
+        }
+
+        .membership-card:nth-child(2) {
+            border-color: var(--secondary-color); /* Highlight für die mittlere Stufe */
+            transform: scale(1.05);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .membership-card h3 {
+            color: var(--primary-color);
+            font-size: 1.7em;
+            margin-top: 0;
+        }
+
+        .membership-card .price {
+            font-size: 2.5em;
+            color: var(--primary-color);
+            font-weight: bold;
+            margin: 15px 0;
+        }
+
+        .membership-card .price small {
+            font-size: 0.5em;
+            font-weight: normal;
+        }
+
+        .membership-card ul {
+            list-style: none;
+            padding: 0;
+            text-align: left;
+            margin-bottom: 25px;
+        }
+
+        .membership-card ul li {
+            padding: 8px 0;
+            border-bottom: 1px dashed #ddd;
+            display: flex;
+            align-items: center;
+        }
+
+        .membership-card ul li:last-child {
+            border-bottom: none;
+        }
+
+        .membership-card ul li::before {
+            content: '✓';
+            color: var(--secondary-color);
+            margin-right: 10px;
+            font-weight: bold;
+        }
+
+        .card-button {
+            display: block;
+            text-align: center;
+            padding: 10px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: auto;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .basic-btn {
+            background-color: #ccc;
+            color: #333;
+        }
+
+        .basic-btn:hover {
+            background-color: #aaa;
+        }
+
+        .pro-btn {
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+        }
+
+        .pro-btn:hover {
+            background-color: #e0b700;
+        }
+
+        .premium-btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: 1px solid var(--primary-color);
+        }
+
+        .premium-btn:hover {
+            background-color: #1a3a4e;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+            font-size: 0.9em;
+        }
+
+        footer a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <nav>
+            <a href="#" class="logo-placeholder">
+                [LOGO PLATZHALTER] Handwerks-<span>Schild</span>
+            </a>
+            <ul>
+                <li><a href="#leistungen">Leistungen</a></li>
+                <li><a href="#mitgliedschaft">Mitgliedschaft</a></li>
+                <li><a href="#ueber-uns">Über Uns</a></li>
+                <li><a href="#kontakt">Kontakt & Notruf</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<section class="hero">
+    <div class="container">
+        <h1>🛠️ Soforthilfe im Notfall - Deutschlandweit!</h1>
+        <p>Ihr zuverlässiger Partner, wenn der Schaden sofort behoben werden muss. Wie der ADAC für Handwerker.</p>
+        <a href="#kontakt" class="cta-button">JETZT SOFORTHILFE ANFORDERN</a>
+    </div>
+</section>
+
+<hr>
+
+<section id="leistungen">
+    <div class="container">
+        <h2 class="section-title">Unsere Notfall-Dienstleistungen 24/7</h2>
+        <p>Wir organisieren Ihnen schnell und unbürokratisch einen qualifizierten Notfall-Handwerker – **rund um die Uhr**.</p>
+        <div class="services-grid">
+            <div class="service-item">
+                <h3>Klempner-Notdienst 💧</h3>
+                <p>Rohrbrüche, verstopfte Abflüsse oder defekte Heizungen – schnelle Hilfe bei Wasserschäden.</p>
+            </div>
+            <div class="service-item">
+                <h3>Schlüsseldienst 🔑</h3>
+                <p>Ausgesperrt? Wir vermitteln seriöse Partner, die Ihnen schnell wieder Zugang zu Ihrem Zuhause verschaffen.</p>
+            </div>
+            <div class="service-item">
+                <h3>Elektriker-Notdienst ⚡</h3>
+                <p>Kurzschlüsse, Stromausfälle oder defekte Sicherungen – wir stellen Ihre Stromversorgung wieder her.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<hr>
+
+<section id="mitgliedschaft">
+    <div class="container">
+        <h2 class="section-title">Ihre Sicherheit: Unsere Mitgliedschaften</h2>
+        <p>Schützen Sie sich vor hohen Notfallkosten. Wählen Sie das Modell, das am besten zu Ihren Bedürfnissen passt.</p>
+
+        <div class="membership-grid">
+
+            <div class="membership-card">
+                <h3>Basis-Schutz</h3>
+                <div class="price">11,90 €<small>/mtl.</small></div>
+                <ul>
+                    <li>Vermittlung eines Handwerkers 24/7</li>
+                    <li>Übernahme der Anfahrtskosten (bis 75 €)</li>
+                    <li>Priorisierter Notrufdienst</li>
+                    <li>Kostenübernahme bis 100 € pro Schadensfall</li>
+                </ul>
+                <a href="#" class="card-button basic-btn">Jetzt Basis wählen</a>
+            </div>
+
+            <div class="membership-card">
+                <h3>Premium-Schutz</h3>
+                <div class="price">19,90 €<small>/mtl.</small></div>
+                <ul>
+                    <li>**NEU:** Kostenübernahme bis 350 € pro Schadensfall</li>
+                    <li>Übernahme der Anfahrtskosten (bis 100 €)</li>
+                    <li>Priorisierter Notrufdienst mit Rückrufgarantie</li>
+                    <li>2 kostenlose Einsätze pro Jahr (bis 350 €)</li>
+                    <li>Inkl. Beratung bei Präventivmaßnahmen</li>
+                </ul>
+                <a href="#" class="card-button pro-btn">Premium-Schutz sichern</a>
+            </div>
+
+            <div class="membership-card">
+                <h3>Exklusiv-Schutz</h3>
+                <div class="price">29,90 €<small>/mtl.</small></div>
+                <ul>
+                    <li>**TOP:** Kostenübernahme bis 750 € pro Schadensfall</li>
+                    <li>Volle Übernahme der Anfahrtskosten</li>
+                    <li>Höchste Notfall-Priorität (1-Stunden-Zusicherung*)</li>
+                    <li>Unbegrenzte Einsätze pro Jahr (bis 750 €)</li>
+                    <li>Jährlicher Sicherheits-Check durch Fachpartner</li>
+                </ul>
+                <a href="#" class="card-button premium-btn">Exklusiv-Mitglied werden</a>
+            </div>
+
+        </div>
+        <p style="margin-top: 40px; font-size: 0.9em; color: #555;">*Details zu Wartezeiten und Kostenübernahme finden Sie in unseren AGB.</p>
+    </div>
+</section>
+
+<hr>
+
+<section id="ueber-uns">
+    <div class="container">
+        <h2 class="section-title">Die Handwerker-Hilfe nach ADAC-Vorbild</h2>
+        <p style="max-width: 800px; margin: 0 auto 30px;">
+            Unser Ziel ist es, Ihnen die gleiche **Zuverlässigkeit und schnelle Erreichbarkeit** zu bieten, die Sie vom ADAC im Straßenverkehr kennen. Wir bauen ein bundesweites Netzwerk von geprüften Notfall-Handwerkern auf, um Menschen in kritischen Situationen sofortige und qualitativ hochwertige Hilfe zu leisten. Mit **Handwerks-Schild** haben Sie eine Sorge weniger.
+        </p>
+        <a href="#mitgliedschaft" class="cta-button">Jetzt Mitglied werden und absichern</a>
+    </div>
+</section>
+
+<hr>
+
+<section id="kontakt" style="background-color: #eee;">
+    <div class="container">
+        <h2 class="section-title">Kontakt & Notruf</h2>
+        <p>Für Notfälle **sofort** anrufen!</p>
+        <h2 style="font-size: 3em; color: var(--secondary-color); margin: 0;">0800 - 123 456 789</h2>
+        <p style="margin-bottom: 30px;">(Kostenlose Notrufnummer, 24 Stunden erreichbar)</p>
+        <p>Für allgemeine Anfragen: info@handwerksschild.de</p>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <p>&copy; 2025 Handwerks-Schild. Alle Rechte vorbehalten. | <a href="#">Impressum</a> | <a href="#">Datenschutz</a> | <a href="#">AGB</a></p>
+    </div>
+</footer>
+
+</body>
+</html>
